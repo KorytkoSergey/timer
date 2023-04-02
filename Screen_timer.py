@@ -3,7 +3,7 @@ import time
 
 global flag_drop, root_t, lbl_info, flag_stop, time_format, timer_label
 
-
+#check
 def btm_pomodoro_command():  # вызываем через функцию, чтобы избежать циклов вызовов
     from Screen_pomodoro import pomodoro_window
     root_t.destroy()
