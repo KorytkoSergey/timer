@@ -3,9 +3,6 @@ from WindowMaker import WindowMaker
 
 
 class FormWorker:
-    root_t, lbl_info, timer_label = None, None, None
-    lbl_info, lbl_amount, lbl_main_time, lbl_second_time, lbl_big_time, lbl_small_time, root = \
-        None, None, None, None, None, None, None
     main_form = tk.Tk()
     screen_timer = WindowMaker("pomodoro", False)
     screen_pomodoro = WindowMaker("timer", True)

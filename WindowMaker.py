@@ -15,23 +15,26 @@ class WindowMaker:
         self.flag_stop = False
         self.flag_drop = False
         ent_time = self.ent_time.get()
-
-        if ',' in ent_time:  # небольшая проверка и замена "," на "."
-            ent_time = ent_time.replace(',', '.')
-        for i in ent_time:
-            if i.isalpha():
-                self.label_info.configure(text='Нужно число')
-
-        self.main_timer(ent_time, self.timer_label)
-
+        break_time = None
+        if not self.check_time(ent_time):
+            return
         if self.is_pomodoro:
             break_time = self.ent_second.get()
-            if ',' in break_time:  # небольшая проверка и замена "," на "."
-                break_time = break_time.replace(',', '.')
-            for i in break_time:
-                if i.isalpha():
-                    self.label_info.configure(text='Нужно число')
+            if not self.check_time(break_time):
+                return
+
+        self.main_timer(ent_time, self.timer_label)
+        if self.is_pomodoro:
             self.main_timer(break_time, self.break_timer_label)
+
+    def check_time(self, in_time):
+        if ',' in in_time:
+            in_time = in_time.replace(',', '.')
+        for i in in_time:
+            if i.isalpha():
+                self.label_info.configure(text='Нужно число')
+                return False
+        return True
 
     def main_timer(self, time_count, timer_label):
         time_format = None
