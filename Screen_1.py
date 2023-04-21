@@ -1,13 +1,13 @@
 import tkinter as tk
 
 
-def btm_timer_command():  # вызываем через функцию, чтобы избежать зациклиности вызовов
+def btn_timer_command():  # вызываем через функцию, чтобы избежать зациклиности вызовов
     from Screen_timer import timer_window
     window_1.destroy()
     timer_window()
 
-
-def btm_pomodoro_command():  # вызываем через функцию, чтобы избежать циклов вызовов
+####################
+def btn_pomodoro_command():  # вызываем через функцию, чтобы избежать циклов вызовов
     from Screen_pomodoro import pomodoro_window
     window_1.destroy()
     pomodoro_window()
@@ -24,13 +24,13 @@ btn_timer = tk.Button(master=frm_btn,
                       text='Timer',
                       height=2,
                       width=18,
-                      command=btm_timer_command)  # кнопка таймер
+                      command=btn_timer_command)  # кнопка таймер
 btn_timer.pack(side=tk.LEFT, fill=tk.BOTH)
 btn_pomodoro = tk.Button(master=frm_btn,
                          text='Pomodoro',
                          height=2,
                          width=18,
-                         command=btm_pomodoro_command)  # кнопка pomodoro
+                         command=btn_pomodoro_command)  # кнопка pomodoro
 btn_pomodoro.pack(side=tk.RIGHT, fill=tk.BOTH)
 
 frm_btn.pack(ipadx=12, ipady=12)
